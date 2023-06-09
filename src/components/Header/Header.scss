@@ -1,0 +1,149 @@
+.header {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5px;
+    width: 100%;
+    height: 150px;
+    background-color: rgba(128, 128, 128, 0.24);
+
+    %active {
+        color: var(--purple);
+        border-bottom: 5px solid var(--purple);
+    }
+
+    &__content {
+        &--tabs-container {
+            width: 650px;
+            height: 100%;
+            color: white;
+
+            ul {
+                display: flex;
+                justify-content: space-between;
+                height: 100%;
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    height: 100%;
+                    transition: 0.3s;
+                    cursor: pointer;
+
+                    &:hover {
+                        @extend %active;
+                    }
+
+                    &.active {
+                        @extend %active;
+                    }
+                }
+            }
+        }
+
+        &--search-block {
+            display: flex;
+            align-items: flex-end;
+            flex-direction: column;
+            width: 300px;
+            height: 100%;
+            position: absolute;
+            right: 30px;
+            top: 0;
+
+            .input-wrapper {
+                margin: 60px 0 8px 0;
+
+                %active {
+                    color: var(--purple);
+                    border-bottom: 2px solid var(--purple);
+                }
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                height: 30px;
+
+                input {
+                    border-radius: 5px;
+                }
+
+                &__lang-switch {
+                    display: flex;
+
+                    p {
+                        color: white;
+                        margin-right: 5px;
+
+                        &:first-child {
+                            cursor: pointer;
+
+                            &:hover {
+                                @extend %active;
+                            }
+                        }
+
+                        &:last-child {
+                            cursor: pointer;
+
+                            &:hover {
+                                @extend %active;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .checkbox-wrapper {
+                input[type="checkbox"] {
+                    display: none;
+                }
+
+                label.toggle {
+                    display: inline-block;
+                    width: 40px;
+                    height: 18px;
+                    position: relative;
+                    cursor: pointer;
+
+                    &::before {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: #000000;
+                        border-radius: 30px;
+                        transition: background-color 0.3s ease;
+                    }
+
+                    &::after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        top: 2px;
+                        left: 2px;
+                        width: 14px;
+                        height: 14px;
+                        background-color: rgb(197, 197, 197);
+                        border-radius: 50%;
+                        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+                        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+                    }
+                }
+
+                /* Изменяем внешний вид тумблера, когда он активен */
+                input[type="checkbox"]:checked + label.toggle::before {
+                    background-color: #4caf50;
+                }
+
+                input[type="checkbox"]:checked + label.toggle::after {
+                    transform: translateX(22px);
+                }
+            }
+        }
+    }
+}

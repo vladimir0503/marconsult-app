@@ -1,0 +1,43 @@
+@-webkit-keyframes scale-up-center {
+    0% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes scale-up-center {
+    0% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+.linkBlock {
+    position: relative;
+    top: 5px;
+    z-index: 1000;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-color: rgb(39, 39, 39);
+    border-radius: 10px;
+    -webkit-animation: scale-up-center 0.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    animation: scale-up-center 0.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+
+    li {
+        margin: 10px;
+
+        :hover {
+            background-color: gray;
+            color: white;
+        }
+    }
+}
